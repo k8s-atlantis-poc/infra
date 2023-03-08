@@ -15,7 +15,6 @@ projects:
   plan_requirements: [mergeable, approved, undiverged]
   apply_requirements: [mergeable, approved, undiverged]
   import_requirements: [mergeable, approved, undiverged]
-  workflow: myworkflow
 - name: example-2
   branch: /main/
   dir: ./hack/example-2
@@ -27,17 +26,3 @@ projects:
   plan_requirements: [mergeable, approved, undiverged]
   apply_requirements: [mergeable, approved, undiverged]
   import_requirements: [mergeable, approved, undiverged]
-  workflow: myworkflow
-workflows:
-  myworkflow:
-    plan:
-      steps:
-      - run: echo $PULL_AUTHOR
-      - init
-      - plan:
-          extra_args: ["-lock", "false"]
-      - run: echo "Done."
-    apply:
-      steps:
-      - run: echo hi
-      - apply
