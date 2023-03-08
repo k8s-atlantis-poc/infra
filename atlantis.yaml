@@ -12,9 +12,6 @@ projects:
   repo_locking: true
   autoplan:
     enabled: false 
-  plan_requirements: [mergeable, approved, undiverged]
-  apply_requirements: [mergeable, approved, undiverged]
-  import_requirements: [mergeable, approved, undiverged]
 - name: example-2
   branch: /main/
   dir: ./hack/example-2
@@ -23,6 +20,3 @@ projects:
   repo_locking: true
   autoplan:
     enabled: false 
-  plan_requirements: [mergeable, approved, undiverged]
-  apply_requirements: [mergeable, approved, undiverged]
-  import_requirements: [mergeable, approved, undiverged]
