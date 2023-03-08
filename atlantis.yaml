@@ -1,0 +1,31 @@
+version: 3
+automerge: false 
+delete_source_branch_on_merge: false
+parallel_plan: true
+parallel_apply: true
+projects:
+- name: example
+  branch: /main/
+  dir: ./hack/example
+  workspace: default
+  terraform_version: v1.3.9
+  repo_locking: true
+  autoplan:
+    enabled: false 
+  plan_requirements: [mergeable, approved, undiverged]
+  apply_requirements: [mergeable, approved, undiverged]
+  import_requirements: [mergeable, approved, undiverged]
+  workflow: myworkflow
+workflows:
+  myworkflow:
+    plan:
+      steps:
+      - run: echo $PULL_AUTHOR
+      - init
+      - plan:
+          extra_args: ["-lock", "false"]
+      - run: echo "Done."
+    apply:
+      steps:
+      - run: echo hi
+      - apply
